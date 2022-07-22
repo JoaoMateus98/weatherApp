@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --test-border: 2px solid red;
+    font-family: 'Roboto', sans-serif;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+.main_container {
+    height: 100vh;
+    border: var(--test-border);
+    display: flex;
+    min-width: 800px;
+}
+/* left stuff */
+.left_container {
+    border: var(--test-border);
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 2rem 5rem;
+    flex-grow: 1;
+}
+
+.weather_icon {
+    width: 2rem;
+}
+
+.right_container {
+    border: var(--test-border);
+    width: 30rem;
+}
+
+
+
