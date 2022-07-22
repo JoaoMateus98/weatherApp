@@ -62,5 +62,3 @@ function getNewWeather(city = "Rockland", units = "Imperial") {
 }
 
 getNewWeather();
-
-// hello
