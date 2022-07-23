@@ -7,6 +7,7 @@
 :root {
     --test-border: 2px solid red;
     --button-color: #81a09a;
+    --right-main-color: rgba(255, 255, 255, .45);
     font-family: 'Roboto', sans-serif;
 }
 .background-img {
@@ -55,19 +56,28 @@
 .right_container {
     padding-left: 50px;
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, .45);
+    color: var(--right-main-color);
     background: rgba(0, 0, 0, 0.2);
     width: 40rem;
     backdrop-filter: blur(15px);
 }
 
 .search-container {
+    display: flex;
+    justify-content: space-between;
     height: 5rem;
     margin-bottom: 50px;
 }
 
 .search-input {
-    
+    border: none;
+    color: rgba(255, 255, 255, .45);
+    border-bottom: 2px solid var(--right-main-color);
+    align-self: flex-end;
+    height: 2rem;
+    width: 80%;
+    font-size: 1.5rem;
+    background-color: transparent;
 }
 
 .search-button {
