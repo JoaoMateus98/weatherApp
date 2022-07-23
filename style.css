@@ -8,6 +8,9 @@
     --test-border: 2px solid red;
     font-family: 'Roboto', sans-serif;
 }
+.background-img {
+    width: 100vw;
+}
 
 .main_container {
     height: 100vh;
@@ -17,6 +20,7 @@
 }
 /* left stuff */
 .left_container {
+    color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -46,6 +50,7 @@
 
 .weather_icon {
     width: 3rem;
+    filter: brightness(0) invert(1);
 }
 
 .right_container {

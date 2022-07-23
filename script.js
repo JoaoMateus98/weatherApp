@@ -1,3 +1,5 @@
+document.body.style.backgroundImage = "url('./imgs/rainy-day-2.jpg')";
+
 class Weather {
   constructor() {
     this.WEATHER_KEY = "6f60271f6f33f4cdabaca4fdb80f42fd";
