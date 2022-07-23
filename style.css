@@ -69,9 +69,13 @@
     margin-bottom: 50px;
 }
 
+::-webkit-input-placeholder { 
+    color: var(--right-main-color);
+  }
+
 .search-input {
     border: none;
-    color: rgba(255, 255, 255, .45);
+    color: var(--right-main-color);
     border-bottom: 2px solid var(--right-main-color);
     align-self: flex-end;
     height: 2rem;
@@ -91,6 +95,27 @@
     background-repeat: no-repeat;
     background-size: 1.5rem;
 }
+
+.detail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.weather-detail-title {
+    margin-bottom: 20px;
+    color: white;
+}
+.flex-this {
+    display: flex;
+    justify-content: space-between;
+}
+
+[class$="data"] {
+    color: white;
+    margin-right: 50px;
+}
+
 
 
 
