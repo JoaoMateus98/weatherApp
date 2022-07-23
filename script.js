@@ -29,11 +29,15 @@ class Weather {
       };
       this.feelsLike = {
         name: "feels like",
-        data: responseJson.main.feels_like,
+        data: responseJson.main.feels_like + displayedUnits,
+      };
+      this.cloudy = {
+        name: "cloudy",
+        data: `${responseJson.clouds.all}%`,
       };
       this.humidity = {
         name: "humidity",
-        data: responseJson.main.humidity,
+        data: `${responseJson.main.humidity}%`,
       };
       this.windspeed = {
         name: "wind speed",
@@ -47,6 +51,7 @@ class Weather {
       this.description,
       this.temp,
       this.feelsLike,
+      this.cloudy,
       this.humidity,
       this.windspeed,
     ];

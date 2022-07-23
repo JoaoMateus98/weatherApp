@@ -14,12 +14,36 @@
         <div class="left_container">
             <p>Joao's Weather</p>
             <div class="data_container">
-                <p class="temp">88<span>&#8451</span></p>
+                <p class="temp">88<span>&deg;</span>F</p>
                 <p class="city">Rockland</p>
-                <img src="./imgs/rainy-day.svg" class="weather_icon">
+                <div class="icon-container">
+                  <img src="./imgs/rainy-day.svg" class="weather_icon"> 
+                  <p class="weather-description">Rainy</p> 
+                </div>
             </div>
         </div>
-        <div class="right_container"></div>
+        <div class="right_container">
+            <div class="search-container">
+              <input type="text" name="search-input" class="search-input" placeholder="Another Location">  
+              <button class="search-button"></button>
+            </div>
+            <div class="detail-container">
+                <p class="weather-detail-title">Weather Details</p>
+                <div class="feels-like-div">
+                    <p>Feels Like</p>
+                    <p>90<span>&deg;</span>F</p>
+                </div>
+                <div class="cloudy-div">
+                    <p>Cloudy</p>
+                </div>
+                <div class="humidity-div">
+                    <p>Humidity</p>
+                </div>
+                <div class="wind-div">
+                    <p>Wind</p>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
