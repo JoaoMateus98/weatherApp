@@ -1,8 +1,12 @@
 document.body.style.backgroundImage = "url('./imgs/rainy-day-2.jpg')";
 const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector(".search-button");
+
+// images
 const gifContainer = document.querySelector(".gif-here");
 const weatherIcon = document.querySelector(".weather-icon");
+
+const cityElement = document.querySelector(".city");
 
 class Weather {
   constructor() {
@@ -12,10 +16,11 @@ class Weather {
     this.feelsLike = "no feels like";
     this.humidity = "no humidity";
     this.windspeed = "no wind";
+    this.displayedUnits = "F";
   }
 
   async getWeather(city, units) {
-    const displayedUnits = units === "Imperial" ? "F" : "C";
+    this.displayedUnits = units === "Imperial" ? "F" : "C";
     const displayedWindSpeed = units === "Imperial" ? " mph" : " km/h";
     try {
       const response =
@@ -28,12 +33,12 @@ class Weather {
         data: responseJson.weather[0].description,
       };
       this.temp = {
-        name: "temperature",
-        data: responseJson.main.temp + displayedUnits,
+        name: "temp",
+        data: responseJson.main.temp,
       };
       this.feelsLike = {
         name: "feels-like-data",
-        data: responseJson.main.feels_like + displayedUnits,
+        data: responseJson.main.feels_like,
       };
       this.cloudy = {
         name: "cloudy-data",
@@ -100,13 +105,24 @@ function getImages(description) {
   }
 }
 
+function updateUI(DOMelement, data) {
+  const currentELement = document.querySelector(`.${DOMelement}`);
+  if (DOMelement === "temp" || DOMelement === "feels-like-data") {
+    const newData = Math.round(data);
+    currentELement.innerHTML = `${newData}\u00B0${weatherClass.displayedUnits}`;
+  } else {
+    currentELement.innerHTML = data;
+  }
+}
+
 function getNewWeather(city = "Rockland", units = "Imperial") {
+  cityElement.innerHTML = city;
   weatherClass.getWeather(city, units).then((arr) => {
     arr.forEach((val) => {
       if (val.name === "weather-description") {
         getImages(val.data);
       }
-      console.log(val);
+      updateUI(val.name, val.data);
     });
   });
 }
