@@ -7,7 +7,7 @@
 :root {
     --test-border: 2px solid red;
     --button-color: #81a09a;
-    --right-main-color: rgba(255, 255, 255, .45);
+    --right-main-color: rgba(255, 255, 255, .75);
     font-family: 'Roboto', sans-serif;
 }
 .background-img {
