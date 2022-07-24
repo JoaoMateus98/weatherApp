@@ -1,5 +1,8 @@
 document.body.style.backgroundImage = "url('./imgs/rainy-day-2.jpg')";
+const searchInput = document.querySelector(".search-input");
+const searchButton = document.querySelector(".search-button");
 const gifContainer = document.querySelector(".gif-here");
+const weatherIcon = document.querySelector(".weather-icon");
 
 class Weather {
   constructor() {
@@ -83,13 +86,17 @@ const weatherClass = new Weather();
 function getImages(description) {
   if (description.includes("clear")) {
     getGif("sunny");
+    weatherIcon.src = "./imgs/icons/sunny.svg";
   } else if (description.includes("clouds")) {
     getGif("cloudy");
+    weatherIcon.src = "./imgs/icons/cloudy.svg";
   } else if (description.includes("rain")) {
     getGif("rainny");
+    weatherIcon.src = "./imgs/icons/rainy-day.svg";
   } else {
     console.log("error in get gif and icon");
     getGif();
+    weatherIcon.src = "./imgs/icons/sunny.svg";
   }
 }
 
@@ -105,3 +112,19 @@ function getNewWeather(city = "Rockland", units = "Imperial") {
 }
 
 getNewWeather();
+
+function search() {
+  const searchValue = searchInput.value;
+  if (searchValue.length < 3) {
+    alert("please enter a valid name");
+  } else {
+    getNewWeather(searchValue);
+  }
+}
+
+searchButton.addEventListener("click", () => search());
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    search();
+  }
+});

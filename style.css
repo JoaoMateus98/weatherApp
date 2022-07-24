@@ -48,7 +48,7 @@
     align-items: center;
 }
 
-.weather_icon {
+.weather-icon {
     width: 3rem;
     filter: brightness(0) invert(1);
 }
