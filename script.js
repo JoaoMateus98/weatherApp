@@ -136,7 +136,7 @@ function getNewWeather(city = "New York", units = "Imperial") {
   });
 }
 
-getNewWeather();
+getNewWeather("New York");
 
 function search() {
   const searchValue = searchInput.value;
