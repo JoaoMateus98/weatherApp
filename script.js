@@ -1,4 +1,5 @@
 document.body.style.backgroundImage = "url('./imgs/rainy-day-2.jpg')";
+const gifContainer = document.querySelector(".gif-here");
 
 class Weather {
   constructor() {
@@ -20,7 +21,7 @@ class Weather {
       const responseJson = await response.json();
       console.log(responseJson);
       this.description = {
-        name: "description",
+        name: "weather-description",
         data: responseJson.weather[0].description,
       };
       this.temp = {
@@ -28,19 +29,19 @@ class Weather {
         data: responseJson.main.temp + displayedUnits,
       };
       this.feelsLike = {
-        name: "feels like",
+        name: "feels-like-data",
         data: responseJson.main.feels_like + displayedUnits,
       };
       this.cloudy = {
-        name: "cloudy",
+        name: "cloudy-data",
         data: `${responseJson.clouds.all}%`,
       };
       this.humidity = {
-        name: "humidity",
+        name: "humidity-data",
         data: `${responseJson.main.humidity}%`,
       };
       this.windspeed = {
-        name: "wind speed",
+        name: "wind-data",
         data: responseJson.wind.speed + displayedWindSpeed,
       };
     } catch {
@@ -58,11 +59,46 @@ class Weather {
   }
 }
 
+async function getGif(searchWord = "sunny") {
+  const GiphyAPIKey = "RdeNrqP2SFdSqQvCR8HPNffzSg6TGiot";
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/translate?api_key=${GiphyAPIKey}&s=${searchWord}&random_id=0`,
+      {
+        mode: "cors",
+      }
+    );
+    const imageData = await response.json();
+    const gif = imageData.data.images.original.url;
+    gifContainer.src = gif;
+  } catch {
+    const errorGif =
+      "https://media0.giphy.com/media/gRWyMr9LBkwc8/giphy.gif?cid=48833f36jw9kd5djt6wi8rh9nzxjcm190r4javolyk9izryb&rid=giphy.gif&ct=g";
+    gifContainer.src = errorGif;
+  }
+}
+
 const weatherClass = new Weather();
+
+function getImages(description) {
+  if (description.includes("clear")) {
+    getGif("sunny");
+  } else if (description.includes("clouds")) {
+    getGif("cloudy");
+  } else if (description.includes("rain")) {
+    getGif("rainny");
+  } else {
+    console.log("error in get gif and icon");
+    getGif();
+  }
+}
 
 function getNewWeather(city = "Rockland", units = "Imperial") {
   weatherClass.getWeather(city, units).then((arr) => {
     arr.forEach((val) => {
+      if (val.name === "weather-description") {
+        getImages(val.data);
+      }
       console.log(val);
     });
   });

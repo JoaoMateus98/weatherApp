@@ -54,6 +54,8 @@
 }
 
 .right_container {
+    display: flex;
+    flex-direction: column;
     padding-left: 50px;
     font-size: 1.5rem;
     color: var(--right-main-color);
@@ -114,6 +116,16 @@
 [class$="data"] {
     color: white;
     margin-right: 50px;
+}
+
+.gif-container{
+    overflow: hidden;
+    flex-grow: 1;
+    margin: 100px 50px 100px 0;
+}
+
+.gif-here {
+    width: 100%;
 }
 
 
