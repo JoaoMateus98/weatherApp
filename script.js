@@ -1,3 +1,5 @@
+// created by Joao Dos Santos on 07/23/2022
+
 const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector(".search-button");
 
@@ -122,7 +124,7 @@ function updateUI(DOMelement, data) {
   }
 }
 
-function getNewWeather(city = "Rockland", units = "Imperial") {
+function getNewWeather(city = "New York", units = "Imperial") {
   cityElement.innerHTML = city;
   weatherClass.getWeather(city, units).then((arr) => {
     arr.forEach((val) => {
