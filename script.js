@@ -26,7 +26,6 @@ class Weather {
         await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${this.WEATHER_KEY}
         `);
       const responseJson = await response.json();
-      console.log(responseJson);
       this.description = {
         name: "weather-description",
         data: responseJson.weather[0].description,
