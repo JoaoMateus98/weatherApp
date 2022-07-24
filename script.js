@@ -1,4 +1,3 @@
-document.body.style.backgroundImage = "url('./imgs/rainy-day-2.jpg')";
 const searchInput = document.querySelector(".search-input");
 const searchButton = document.querySelector(".search-button");
 
@@ -92,17 +91,26 @@ function getImages(description) {
   if (description.includes("clear")) {
     getGif("sunny");
     weatherIcon.src = "./imgs/icons/sunny.svg";
+    document.body.style.backgroundImage =
+      "url('./imgs/background/sunny-bg.jpg')";
   } else if (description.includes("clouds")) {
     getGif("cloudy");
     weatherIcon.src = "./imgs/icons/cloudy.svg";
+    document.body.style.backgroundImage =
+      "url('./imgs/background/cloudy-bg.jpg')";
   } else if (description.includes("rain")) {
     getGif("rainny");
     weatherIcon.src = "./imgs/icons/rainy-day.svg";
+    document.body.style.backgroundImage =
+      "url('./imgs/background/rainy-bg.jpg')";
   } else {
     console.log("error in get gif and icon");
     getGif();
     weatherIcon.src = "./imgs/icons/sunny.svg";
+    document.body.style.backgroundImage =
+      "url('./imgs/background/rainy-bg.jpg')";
   }
+  document.body.style.backgroundSize = "cover";
 }
 
 function updateUI(DOMelement, data) {
